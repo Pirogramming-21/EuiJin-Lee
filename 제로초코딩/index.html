@@ -17,12 +17,21 @@
         #main{
             height:2000px;
         }
-        #header-hamburger{
-            margin-top:18px;
-            background-color: blue;
-
+        #header{
+            text-align: left;
+        }
+        #header-hamburger > div{
+            background-image: url(./sp_main.png);
             width: 44px;
             height: 44px;
+            background-position-x: -49px;
+            background-position-y: -145px;
+            background-repeat: no-repeat;
+            background-size: 323px 234px
+        }
+        #header-hamburger{
+            margin-top:18px;
+            padding: 10px;
         }
         html, body{
             margin: 0;
@@ -34,7 +43,9 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger"></div>
+                <div id="header-hamburger">
+                    <div></div>
+                </div>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
