@@ -199,44 +199,46 @@
                 </button>
             </div>
             <style>
-                #search > form{
-                    display: inline-block;
+                #search > form {
+                    display: inline-flex;
                     width: 568px;
                     height: 54px;
                     border: 1px solid #03c75a;
                     border-radius: 27px;
                     text-align: left;
                 }
-                #search > form > input{
+                #search > form > input {
                     width: 466px;
                     height: 100%;
                     padding: 15px 0;
                     border: none;
                     outline: none;
                 }
-                #search > form a{
+                #search > form a {
                     width: 52px;
                     height: 100%;
                     padding: 6px 0 6px 12px;
                     margin-right: 12px;
                 }
-                #search > form svg{
+                #search > form svg {
                     width: 24px;
                     height: 24px;
                 }
-                #search-svg{
-                    display: inline-block;
+                #search-svg {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 52px;
                     margin-right: 12px;
                     height: 100%;
                     padding: 6px 0 6px 12px;
                 }
-                #search-svg svg{
-                    width:24px;
-                    height:24px;
-                    fill:#03c75a;
+                #search-svg svg {
+                    width: 24px;
+                    height: 24px;
+                    fill: #03c75a;
                 }
-                #search-input{
+                #search-input {
                     width: 466px;
                     padding: 15px 0;
                     font-size: 18px;
@@ -245,9 +247,26 @@
                     border: none;
                     outline: none;
                 }
-                #search-right{
+                #search-right {
+                    flex: 1;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    content: "";
                     display: inline-block;
+                    width: 40px;
+                    height: 100%;
+                    background-position: -241px -145px;
+                    background-image: url(https://s.pstatic.net/static/www/m-new/uit/img/sp_main_search_b79b10fe.png);
+                    -webkit-background-size: 323px 234px;
+                    background-size: 323px 234px;
+                    background-repeat: no-repeat;
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    
                 }
+            
             </style>
             <div id="search">
                 <form action="">
@@ -257,7 +276,7 @@
                     <label for="search-input" class="blind">검색어 입력</label>
                     <input id="search-input" type="text" placeholder="검색어를 입력하세요.">
                     <div id="search-right">
-                        <button href="#" id="search-keyboard">
+                        <button href="#" id="search-right">
                             <span class="blind">입력도구</span>
                         </button>
                     </div>
@@ -266,9 +285,7 @@
             </div>
             <div id="nav"></div>
             <div id="main"></div>
-        </div>
-    
-    
-    </div>
-</body>
-</html>
+            </div>
+            </body>
+            </html>
+            
