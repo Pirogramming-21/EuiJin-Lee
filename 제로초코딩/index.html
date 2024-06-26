@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naver</title>
+    <title>NAVER</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <style>
         :root {
@@ -72,6 +72,7 @@
         #header{
             text-align: left;
             position: relative;
+            height: 120px;
         }
         #header-hamburger > div{
             background-image: url(./sp_main.png);
@@ -157,7 +158,7 @@
             box-sizing: border-box;
         }
 
-        html, body{
+        html, body, form{
             margin: 0;
             padding: 0;
         }
@@ -169,6 +170,7 @@
             margin: -1px;
             overflow: hidden;
         }
+
     </style>
 </head>
 <body>
@@ -194,10 +196,45 @@
                     <div></div>
                     <span class="blind">알림</span>
                     <!--::after-->
-
                 </button>
             </div>
-            <div id="search"></div>
+            <style>
+                #search > form{
+                    display: inline-block;
+                    width: 568px;
+                    height: 54px;
+                    border: 1px solid #03c75a;
+                    border-radius: 27px;
+                    text-align: left;
+                }
+                #search > form > input{
+                    width: 466px;
+                    height: 100%;
+                    padding: 15px 0;
+                    border: none;
+                    outline: none;
+                }
+                #search > form a{
+                    width: 52px;
+                    height: 100%;
+                    padding: 6px 0 6px 12px;
+                    margin-right: 12px;
+                }
+                #search > form svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            </style>
+            <div id="search">
+                <form action="">
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                    </a>
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text">
+                    <button class="blind">검색</button>
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
