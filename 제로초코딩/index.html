@@ -58,34 +58,34 @@
             --color_enter: #e538e2;
             --color_enter_rgb: 229, 56, 226;
         }
-        #wrap{
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            font-size: 10.5px;
+            line-height: 10.5px;
+            margin: 0;
+            padding: 0;
+            letter-spacing: -0.4px;
+            font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+        }
+        form, ul {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
             text-align: center;
         }
-        #wrap-center{
-            width: 800px;
+        #wrap-center {
+            width: 1280px;
             display: inline-block;
-            background-color: yellow;
         }
-        #main{
-            height:2000px;
-        }
-        #header{
-            text-align: left;
+        #header {
             position: relative;
-            height: 120px;
-        }
-        #header-hamburger > div{
-            background-image: url(./sp_main.png);
-            width: 44px;
-            height: 44px;
-            position:relative;
-            z-index: 1;
-            background-position-x: -49px;
-            background-position-y: -145px;
-            background-repeat: no-repeat;
-            background-size: 323px 234px
-        }
-        #header-hamburger, #header-notice, #header-naverpay{
+            text-align: left;
+            height: 64px;
+        } 
+        #header-hamburger, #header-notice, #header-naverpay {
             position: absolute;
             top: 18px;
             padding: 10px;
@@ -93,84 +93,62 @@
             background: none;
             border: none;
             cursor: pointer;
-
         }
-        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-notice:hover::before{
+        
+        #header-hamburger:hover::before, #header-notice:hover::before, #header-naverpay:hover::before {
             position: absolute;
             content: '';
             z-index: 0;
             left: 1px;
-            top: 1px;
+            top: 1px; 
             width: 44px;
             height: 44px;
             background-color: var(--color_option_bg);
-            border-radius:50%;
-            padding: 9px;
+            border-radius: 50%;
         }
-
-        #header-hamburger > div, #header-notice > div, #header-naverpay > div{
+        #header-hamburger > div, #header-notice > div, #header-naverpay > div {
             background-image: url(./sp_main.png);
-            width: 44px;
-            height: 44px;
-            position:relative;
+            width: 26px; /* 32px */
+            height: 26px;
+            position: relative;
             z-index: 1;
-            background-position-x: -49px;
-            background-position-y: -145px;
             background-repeat: no-repeat;
+            background-size: 422px 405px; /* 442 434 */
         }
-        #header-hamburger{
+        
+        #header-hamburger {
             left: -10px;
         }
-
-        #header-naverpay > div{
-            background-image: url(./sp_main.png);
-            width: 40px;
-            height: 44px;
-            position:relative;
-            z-index: 1;
-            background-position: -90px -194px;
-            background-repeat: no-repeat;
-            background-size: 323px 234px
+        #header-hamburger > div {
+            background-position: -335px -284px;
         }
-
-        #header-naverpay{
+        
+        #header-naverpay {
             right: 42px;
             padding: 10px 8px;
         }
-
-        #header-notice > div{
-            background-image: url(./sp_main.png);
-            width: 40px;
-            height: 44px;
-            position:relative;
-            z-index: 1;
-            background-position: -45px -194px;
-            background-repeat: no-repeat;
-            background-size: 323px 234px
+        #header-naverpay > div {
+            width: 30px;
+            background-position: -31px -316px;
         }
-
-        #header-notice{
+        
+        #header-notice {
             right: -10px;
-            
         }
-
-        *{
-            box-sizing: border-box;
+        #header-notice > div {
+            background-position: -364px -27px;
         }
-
-        html, body, form{
-            margin: 0;
-            padding: 0;
+        #main {
+            height: 2000px;
         }
-        .blind{
+        .blind {
             position: absolute;
-            clip:rect(0 0 0 0);
+            clip: rect(0 0 0 0);
             width: 1px;
             height: 1px;
             margin: -1px;
             overflow: hidden;
         }
-
     </style>
 </head>
 <body>
@@ -201,96 +179,218 @@
             <style>
                 #search > form {
                     display: inline-flex;
-                    width: 568px;
-                    height: 54px;
+                    width: 708px;
+                    height: 60px;
                     border: 1px solid #03c75a;
-                    border-radius: 27px;
+                    border-radius: 33px;
                     text-align: left;
                 }
-                #search > form > input {
-                    width: 466px;
-                    height: 100%;
-                    padding: 15px 0;
-                    border: none;
-                    outline: none;
+                #search > form:hover {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
                 }
-                #search > form a {
-                    width: 52px;
-                    height: 100%;
-                    padding: 6px 0 6px 12px;
-                    margin-right: 12px;
-                }
-                #search > form svg {
-                    width: 24px;
-                    height: 24px;
-                }
-                #search-svg {
+                #search-svg{
                     display: inline-flex;
+                    width: 68px;
+                    margin-right: 12px;
+                    height: 100%;
                     justify-content: center;
                     align-items: center;
-                    width: 52px;
-                    margin-right: 12px;
-                    height: 100%;
-                    padding: 6px 0 6px 12px;
+                    padding-left: 10px;
+                    position: relative;
                 }
-                #search-svg svg {
+                #search-svg::after {
+                    display: none;
+                }
+                #search > form:focus-within #search-svg::after {
+                    position: absolute;
+                    display: inline-block;
+                    content: '';
+                    width: 1px;
+                    height: 20px;
+                    background-color: rgb(230, 230, 230);
+                    right: 0;
+                    top: 20px;
+                }
+                #search-svg svg{
                     width: 24px;
                     height: 24px;
                     fill: #03c75a;
                 }
                 #search-input {
-                    width: 466px;
-                    padding: 15px 0;
-                    font-size: 18px;
-                    font-weight: 700;
-                    line-height: 22px;
-                    border: none;
-                    outline: none;
+                width: 480px;
+                padding: 9px 0;
+                font-size: 2rem;
+                line-height: 10px;
+                font-weight: bold;
+                border: none;
+                outline: none;
                 }
-                #search-input::placeholder{
-                    color: #e4e4e4;
-
-                }
-                #search-input:focus::placeholder{
+                #search-input::placeholder {
                     color: white;
+                }
+                #search-input:focus::placeholder {
+                    color: rgb(230, 230, 230);
                 }
                 #search-right {
                     flex: 1;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    content: "";
-                    display: inline-block;
-                    width: 40px;
-                    height: 100%;
-                    background-position: -241px -145px;
-                    background-image: url(https://s.pstatic.net/static/www/m-new/uit/img/sp_main_search_b79b10fe.png);
-                    -webkit-background-size: 323px 234px;
-                    background-size: 323px 234px;
-                    background-repeat: no-repeat;
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: flex-end;
+                }
+                #search-keyboard,  #search-recent, #search-button{
+                    background: transparent;
                     border: none;
                     cursor: pointer;
-                    background-color: transparent;
-                    
                 }
-
+                #search-keyboard::before {
+                content: "";
+                display: block;
+                background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+                background-size: 442px 434px;
+                background-position: -290px -270px;
+                background-repeat: no-repeat;
+                width: 24px;
+                height: 14px;
+                }
+                #search-keyboard:hover::before{
+                    filter: brightness(0.7);
+                }
+                #search-recent::before {
+                content: "";
+                display: block;
+                background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+                background-size: 442px 434px;
+                background-position: -123px -98px;
+                background-repeat: no-repeat;
+                width: 10px;
+                height: 6px;
+                }
+                #search-button {
+                    padding: 17px 27px 16px 10px;
+                }
+                #search-button > div {
+                    background-image: #03c75a;
+                    width: 25px;
+                    height: 25px;
+                }
+                #search-button > div::before {
+                content: "";
+                display: inline-block;
+                background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+                background-size: 442px 434px;
+                background-position: -368px -305px;
+                background-repeat: no-repeat;
+                width: 25px;
+                height: 25px;
+                }
             </style>
             <div id="search">
                 <form action="">
                     <a id="search-svg" href="#">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                        <svg viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
                     </a>
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="search-input" type="text" placeholder="검색어를 입력하세요.">
+                    <input id="search-input" type="text" placeholder="검색어를 입력하세요."/>
                     <div id="search-right">
-                        <button href="#" id="search-right">
+                        <button href="#" id="search-keyboard">
                             <span class="blind">입력도구</span>
                         </button>
+                        <button href="#" id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </button>
+                        <button id="search-button">
+                            <div><span class="blind">검색</span></div>
+                        </button>
                     </div>
-                    <button class="blind">검색</button>
                 </form>
             </div>
-            <div id="nav"></div>
+            <style>
+                #nav > ul{
+                    display: flex;
+                    list-style-type: none;
+                    justify-content: center;
+                    font-size: 11px;
+                    line-height: 15px;
+                }
+                #nav a {
+                    text-decoration: none;
+                }
+                #nav a:visited{
+                    color: black;
+                }
+                #nav li{
+                    width:64px;
+                    margin-left:0;
+                }
+                #nav li:nth-of-type(1){
+
+                }
+            </style>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>카페</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>블로그</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>쇼핑</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>뉴스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>증권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>부동산</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>지도</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>웹툰</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span class="blind">더보기</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
             <div id="main"></div>
             </div>
             </body>
