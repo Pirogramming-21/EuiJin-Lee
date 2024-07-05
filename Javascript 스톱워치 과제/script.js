@@ -61,10 +61,25 @@ function addRecord(){
     recordList.appendChild(li);
 }
 
+function selectAll(){
+    const checkboxes = recordList.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => checkbox.checked = true);
+}
 
+function deleteSelected(){
+    const selectedItems = recordList.querySelectorAll('input[type="checkbox"]:checked');
+    selectedItems.forEach(item =>item.parentElement.remove());
+}
+
+function deleteAll(){
+    recordList.innerHTML = '';
+}
 
 
 
 startStopBtn.addEventListener('click', startStop);
 resetBtn.addEventListener('click', reset);
 recordBtn.addEventListener('click', addRecord);
+selectAllBtn.addEventListener('click',selectAll);
+deleteSelectedBtn.addEventListener('click',deleteSelected);
+deleteAllBtn.addEventListener('click',deleteAll);
