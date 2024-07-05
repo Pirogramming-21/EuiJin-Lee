@@ -27,6 +27,6 @@ current_player = 0
 
 while True:
     if play_turn(players[current_player]):
-        print('끝')
+        print(f"{players[1-current_player]} Win!")
         break
     current_player = 1 - current_player
