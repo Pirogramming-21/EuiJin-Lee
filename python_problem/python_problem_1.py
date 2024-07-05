@@ -1,3 +1,5 @@
+import random
+
 num = 0
 
 def get_valid_input():
@@ -13,7 +15,12 @@ def get_valid_input():
 
 def play_turn(player):
     global num
-    count = get_valid_input()
+    if player == 'computer':
+        count = random.randint(1, 3)
+        print(f"{player}: {count} (computer가 부른 숫자)")
+    else:
+        count = get_valid_input()
+    
     for i in range(count):
         num += 1
         print(f"{player}: {num}")
@@ -22,7 +29,7 @@ def play_turn(player):
     return False
 
 def brGame():
-    players = ['playerA', 'playerB']
+    players = ['computer', 'player']
     current_player = 0
 
     while True:
@@ -31,4 +38,5 @@ def brGame():
             break
         current_player = 1 - current_player
 
+# 게임 시작
 brGame()
