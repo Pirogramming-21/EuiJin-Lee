@@ -18,6 +18,15 @@ def play_turn(player):
     for i in range(count):
         num +=1
         print(f"{player}:{num}")
+        if num >= 31:
+            return True
+    return False
 
-play_turn("playerA")
-play_turn("playerB")
+players = ['playerA','playerB']
+current_player = 0
+
+while True:
+    if play_turn(players[current_player]):
+        print('끝')
+        break
+    current_player = 1 - current_player
