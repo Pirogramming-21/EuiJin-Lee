@@ -44,6 +44,27 @@ function formatTime(h, m, s) {
     return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
 }
 
+function reset(){
+    clearInterval(timer);
+    isRunning = false;
+    second = minutes = hours = 0;
+    display.textContent = '00:00:00';
+    startStopBtn.textContent = '시작';
+}
+
+function addRecord(){
+    const li = document.createElement('li');
+    li.innerHTML = `
+    <input type = "checkbox">
+    <span>${display.textContent}</span>
+    `;
+    recordList.appendChild(li);
+}
+
+
+
 
 
 startStopBtn.addEventListener('click', startStop);
+resetBtn.addEventListener('click', reset);
+recordBtn.addEventListener('click', addRecord);
