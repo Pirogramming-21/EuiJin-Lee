@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch&Timer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Stop Watch & Timer</h1>
+        <div class ="stopwatch">
+            <div id = "display">00:00:00</div>
+            <div class="controls">
+                <button id="startStop">시작</button>
+                <button id="reset">리셋</button>
+                <button id="record">기록</button>
+            </div>            
+        </div>
+        <div class="timer">
+            <input type="number" id="timerInput" placeholder="타이머 시간(초)">
+            <button id="startTimer">타이머 시작</button>
+        </div>
+        <div class="records">
+            <h2>기록</h2>
+            <div class="record-controls">
+                <button id="selectAll">전체선택</button>
+                <button id="deleteSelected">선택</button>
+                <button id="deleteAll">전체삭제</button>
+            </div>
+            <ul id="recordList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
