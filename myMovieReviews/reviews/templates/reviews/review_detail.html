@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>리뷰 상세 페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ review.title }} - 리뷰 상세</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>{{ review.title }}</h1>
-    <a href="{% url 'review_list' %}">Review List</a><br>
-    <p><strong>감독:</strong> {{ review.director }}</p>
-    <p><strong>주연:</strong> {{ review.main_actor }}</p>
-    <p><strong>장르:</strong> {{ review.genre }}</p>
-    <p><strong>별점:</strong> {{ review.rating }}/10</p>
-    <p><strong>러닝타임:</strong> {{ review.running_time }} 분</p>
-    <p><strong>리뷰 내용:</strong><br>{{ review.content }}</p>
-
-    <a href="{% url 'review_edit' review.id %}">수정</a><br>
-    <form action="{% url 'review_delete' review.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">삭제</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>{{ review.title }}</h1>
+            <a href="{% url 'review_list' %}" class="back-link">← 리뷰 목록으로</a>
+        </header>
+        
+        <div class="review-content">
+            <div class="review-info">
+                <p><strong>감독:</strong> {{ review.director }}</p>
+                <p><strong>주연:</strong> {{ review.main_actor }}</p>
+                <p><strong>장르:</strong> {{ review.genre }}</p>
+                <p><strong>별점:</strong> <span class="rating">{{ review.rating }}/10</span></p>
+                <p><strong>러닝타임:</strong> {{ review.running_time }} 분</p>
+            </div>
+            
+            <div class="review-text">
+                <h2>리뷰 내용</h2>
+                <p>{{ review.content }}</p>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="{% url 'review_edit' review.id %}" class="edit-button">수정</a>
+            <form action="{% url 'review_delete' review.id %}" method="post" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">삭제</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
