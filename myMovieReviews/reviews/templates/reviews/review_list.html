@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review List</title>
+</head>
+<body>
+    <h1>Review List</h1>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a> - {{ review.release_year }} - {{ review.genre }} - {{ review.rating }}/10
+                {% if review.image %}
+                    <br>
+                    <img src="{{ review.image.url }}" alt="{{ review.title }} poster" style="width: 100px; height: auto;">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'review_create' %}">리뷰 작성</a>
+</body>
+</html>

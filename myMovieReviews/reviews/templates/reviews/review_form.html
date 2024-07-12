@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>리뷰 작성/수정</title>
+</head>
+<body>
+    <h1>리뷰 작성/수정</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="id_title">영화 제목:</label><br>
+            {{ form.title }}
+        </p>
+        <p>
+            <label for="id_release_year">개봉 연도:</label><br>
+            {{ form.release_year }}
+        </p>
+        <p>
+            <label for="id_director">감독:</label><br>
+            {{ form.director }}
+        </p>
+        <p>
+            <label for="id_main_actor">주연:</label><br>
+            {{ form.main_actor }}
+        </p>
+        <p>
+            <label for="id_genre">장르:</label><br>
+            {{ form.genre }}
+        </p>
+        <p>
+            <label for="id_rating">별점:</label><br>
+            {{ form.rating }}
+        </p>
+        <p>
+            <label for="id_running_time">러닝타임:</label><br>
+            {{ form.running_time }}
+        </p>
+        <p>
+            <label for="id_content">리뷰 내용:</label><br>
+            {{ form.content }}
+        </p>
+        <p>
+            <label for="id_image">사진:</label><br>
+            {{ form.image }}
+        </p>
+        <button type="submit">저장</button>
+    </form>
+</body>
+</html>

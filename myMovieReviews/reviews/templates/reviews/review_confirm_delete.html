@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>리뷰 삭제 확인</title>
+</head>
+<body>
+    <h1>리뷰 삭제 확인</h1>
+    <p>다음 리뷰를 삭제하시겠습니까?</p>
+    <p><strong>영화 제목:</strong> {{ review.title }}</p>
+    <form action="{% url 'review_delete' review.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="예, 삭제합니다">
+    </form>
+    <a href="{% url 'review_detail' review.id %}">취소</a>
+</body>
+</html>
