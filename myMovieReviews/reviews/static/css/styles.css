@@ -1,0 +1,45 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif; /* h1 태그에만 폰트 설정 */
+    color: #333; /* 글자 색상 설정 */
+    text-align: center; /* 중앙 정렬 */
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.review-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    flex: 1 0 calc(25% - 20px);
+}
+
+.review-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.review-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}

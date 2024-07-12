@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
     <title>Review List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>Review List</h1>
-    <ul>
+    <ul class="review-list">
         {% for review in reviews %}
-            <li>
-                <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a> - {{ review.release_year }} - {{ review.genre }} - {{ review.rating }}/10
-                {% if review.image %}
-                    <br>
-                    <img src="{{ review.image.url }}" alt="{{ review.title }} poster" style="width: 100px; height: auto;">
-                {% endif %}
+            <li class="review-item">
+                <div class="review-box">
+                    <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a> - {{ review.release_year }} - {{ review.genre }} - {{ review.rating }}/10
+                    {% if review.image %}
+                        <br>
+                        <img src="{{ review.image.url }}" alt="{{ review.title }} poster">
+                    {% endif %}
+                </div>
             </li>
         {% endfor %}
     </ul>
+    <br>
     <a href="{% url 'review_create' %}">리뷰 작성</a>
 </body>
 </html>
