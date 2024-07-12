@@ -21,7 +21,8 @@
             </li>
         {% endfor %}
     </ul>
-    <br>
-    <a href="{% url 'review_create' %}">리뷰 작성</a>
+    <div class="create-review-container">
+        <a href="{% url 'review_create' %}" class="create-review-button">리뷰 작성</a>
+    </div>
 </body>
 </html>

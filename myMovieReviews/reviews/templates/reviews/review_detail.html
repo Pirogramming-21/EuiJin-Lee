@@ -2,9 +2,12 @@
 <html>
 <head>
     <title>리뷰 상세 페이지</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>{{ review.title }}</h1>
+    <a href="{% url 'review_list' %}">Review List</a><br>
     <p><strong>감독:</strong> {{ review.director }}</p>
     <p><strong>주연:</strong> {{ review.main_actor }}</p>
     <p><strong>장르:</strong> {{ review.genre }}</p>
@@ -12,7 +15,6 @@
     <p><strong>러닝타임:</strong> {{ review.running_time }} 분</p>
     <p><strong>리뷰 내용:</strong><br>{{ review.content }}</p>
 
-    <a href="{% url 'review_list' %}">리뷰 리스트로 돌아가기</a><br>
     <a href="{% url 'review_edit' review.id %}">수정</a><br>
     <form action="{% url 'review_delete' review.id %}" method="post">
         {% csrf_token %}

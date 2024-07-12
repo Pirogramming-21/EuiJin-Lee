@@ -26,7 +26,10 @@ a:hover {
 }
 
 .review-item {
-    flex: 1 0 calc(25% - 20px);
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .review-box {
@@ -42,4 +45,27 @@ a:hover {
     height: auto;
     display: block;
     margin-top: 10px;
+    flex-grow: 1;
+    object-fit: cover;
+}
+
+.create-review-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.create-review-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.create-review-button:hover {
+    background-color: #45a049;
+    text-decoration: none;
 }
