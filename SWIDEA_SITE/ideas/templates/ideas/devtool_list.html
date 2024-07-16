@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>DevTool List</h1>
+    <a href="{% url 'devtool_new' %}">New DevTool</a>
+    <ul>
+        {% for devtool in devtools %}
+        <li>
+            <a href="{% url 'devtool_detail' devtool.pk %}">{{ devtool.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

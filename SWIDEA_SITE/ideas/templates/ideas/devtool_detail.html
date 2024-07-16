@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ devtool.name }}</h1>
+    <p>{{ devtool.kind }}</p>
+    <p>{{ devtool.content }}</p>
+    <a href="{% url 'devtool_edit' devtool.pk %}">Edit</a>
+    <form action="{% url 'devtool_delete' devtool.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'devtool_list' %}">Back to list</a>
+{% endblock %}

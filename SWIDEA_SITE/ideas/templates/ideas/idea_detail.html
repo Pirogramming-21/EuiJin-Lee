@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ idea.title }}</h1>
+    <img src="{{ idea.image.url }}" alt="{{ idea.title }}">
+    <p>{{ idea.content }}</p>
+    <p>Interest: <span id="interest-count">{{ idea.interest }}</span></p>
+    <button id="increase-interest">+</button>
+    <button id="decrease-interest">-</button>
+    <p>DevTool: <a href="{% url 'devtool_detail' idea.devtool.pk %}">{{ idea.devtool.name }}</a></p>
+    <a href="{% url 'idea_edit' idea.pk %}">Edit</a>
+    <form action="{% url 'idea_delete' idea.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'idea_list' %}">Back to list</a>
+    <button id="star-idea">{% if idea.starred %}Unstar{% else %}Star{% endif %}</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('#star-idea').click(function() {
+        $.get("{% url 'idea_star' idea.pk %}", function(data) {
+            $('#star-idea').text(data.starred ? 'Unstar' : 'Star');
+        });
+        });
+
+        $('#increase-interest').click(function() {
+        $.get("{% url 'idea_interest' idea.pk 'increase' %}", function(data) {
+            $('#interest-count').text(data.interest);
+        });
+        });
+
+        $('#decrease-interest').click(function() {
+        $.get("{% url 'idea_interest' idea.pk 'decrease' %}", function(data) {
+            $('#interest-count').text(data.interest);
+        });
+        });
+    </script>
+{% endblock %}

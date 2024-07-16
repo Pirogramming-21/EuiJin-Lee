@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+{% block content %}
+    <h1>Idea List</h1>
+    <a href="{% url 'idea_new' %}">New Idea</a>
+    <form method="GET">
+        <select name="sort_by" onchange="this.form.submit()">
+            <option value="title" {% if request.GET.sort_by == 'title' %}selected{% endif %}>Name</option>
+            <option value="-created_at" {% if request.GET.sort_by == '-created_at' %}selected{% endif %}>Newest</option>
+            <option value="interest" {% if request.GET.sort_by == 'interest' %}selected{% endif %}>Interest</option>
+            <option value="starred" {% if request.GET.sort_by == 'starred' %}selected{% endif %}>Starred</option>
+        </select>
+    </form>
+    <ul>
+        {% for idea in page_obj %}
+        <li>
+            <a href="{% url 'idea_detail' idea.pk %}">{{ idea.title }}</a>
+            <div class="starred-icon-container">
+                {% if idea.starred %}
+                    <span class="starred-icon">&#9733;</span>
+                {% endif %}
+                <img src="{{ idea.image.url }}" alt="{{ idea.title }}" class="idea-image">
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+            <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
